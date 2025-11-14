@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ElectronicComponentStore.Models
 {
-    internal class ComponentType
-    {
-    }
+    //public class ComponentType
+    //{
+    //    public string TypeName { get; set; }
+    //    public int Count { get; set; }
+    //}
 }

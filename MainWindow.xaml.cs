@@ -1,24 +1,21 @@
-﻿using System.Text;
+﻿using ElectronicComponentStore.Database;
+using ElectronicComponentStore.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace ElectronicComponentStore
+namespace ElectronicComponentStore;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        _ = InitializeDatabaseAsync();
+        DataContext = new MainViewModel();
+    }
+
+    private async Task InitializeDatabaseAsync()
+    {
+        var dbInitializer = new DatabaseInitializer("Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True");
+        await dbInitializer.InitializeDatabaseAsync();
     }
 }

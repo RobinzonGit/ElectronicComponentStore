@@ -1,0 +1,56 @@
+﻿<Window x:Class="ElectronicComponentStore.ComponentEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование компонента" Height="400" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Название:" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" Margin="5"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Тип:" Margin="5"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Text="{Binding Type}" Margin="5" IsEditable="True">
+            <ComboBoxItem>Microcontrollers</ComboBoxItem>
+            <ComboBoxItem>Microchips</ComboBoxItem>
+            <ComboBoxItem>Transistors</ComboBoxItem>
+            <ComboBoxItem>Mosfets</ComboBoxItem>
+            <ComboBoxItem>Diodes</ComboBoxItem>
+            <ComboBoxItem>Zener diodes</ComboBoxItem>
+            <ComboBoxItem>Capacitors</ComboBoxItem>
+            <ComboBoxItem>Electrolytic capacitors</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Номер ячейки:" Margin="5"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CellNumber}" Margin="5"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Количество:" Margin="5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Quantity}" Margin="5"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Дата изменения:" Margin="5"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding DateOfChanges}" Margin="5"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Даташит:" Margin="5"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Datasheet}" Margin="5"/>
+
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="OK" Width="80" Margin="5" IsDefault="True" Click="OkButton_Click"/>
+            <Button Content="Отмена" Width="80" Margin="5" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
