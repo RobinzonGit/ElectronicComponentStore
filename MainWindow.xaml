@@ -10,9 +10,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Заголовок -->
-        <TextBlock Grid.Row="0" Text="{Binding CurrentView}" FontSize="16" FontWeight="Bold" 
-                   Margin="10" HorizontalAlignment="Center"/>
+        <!-- Заголовок с информацией о папке -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="{Binding CurrentView}" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Text=" | Папка даташитов: " Margin="10,0,0,0" VerticalAlignment="Center" Foreground="Gray"/>
+            <TextBlock Text="{Binding DatasheetsFolder}" VerticalAlignment="Center" Foreground="Blue" 
+                       ToolTip="{Binding DatasheetsFolder}"/>
+        </StackPanel>
 
         <!-- Основное содержимое -->
         <Grid Grid.Row="1">
@@ -89,8 +93,10 @@
             </DataGrid>
         </Grid>
 
-        <!-- Панель инструментов -->
+        <!-- Панель инструментов с новой кнопкой -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Изменить папку даташитов" Command="{Binding ChangeDatasheetsFolderCommand}" 
+                    Margin="5,0" Padding="10,5" ToolTip="Изменить папку для хранения файлов даташитов"/>
             <Button Content="Добавить" Command="{Binding AddComponentCommand}" 
                     Margin="5,0" Padding="10,5"/>
             <Button Content="Редактировать" Command="{Binding EditComponentCommand}" 

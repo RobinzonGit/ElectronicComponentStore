@@ -1,6 +1,7 @@
 ﻿using ElectronicComponentStore.Database;
 using ElectronicComponentStore.ViewModels;
 using System.Windows;
+//using System.Windows.Forms; // Для FolderBrowserDialog
 
 namespace ElectronicComponentStore;
 
